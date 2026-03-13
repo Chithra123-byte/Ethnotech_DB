@@ -1,0 +1,29 @@
+<html>
+
+<head>
+    <title>Student Information</title>
+</head>
+
+<body>
+    <h1>Student Information</h1>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>USN</th>
+            <th>Sem</th>
+            <th>Marks</th>
+        </tr>
+        {% for student in students %}
+        <tr>
+
+            <td>{{ student.name }}</td>
+            <td>{{ student.usn }}</td>
+            <td>{{ student.sem }}</td>
+            <td>{{ student.marks }}</td>
+
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>
