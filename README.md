@@ -57,4 +57,4 @@ This repository covers the following MongoDB fundamentals:
 ### 8️⃣ Did Two Task
 
 * First-Creating simple Navigation page with login and register
-*Second-Creating website like a shopping site
+* Second-Creating website like a shopping site
