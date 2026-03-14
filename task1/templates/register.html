@@ -1,0 +1,38 @@
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="navbar">
+        <a href="/register">Register</a>
+        <a href="/login">Login</a>
+    </div>
+
+    <div class="container">
+
+        <h2>Register</h2>
+        {% if msg %}
+        <p style="color:red">{{msg}}</p>
+        {% endif %}
+        <form method="POST">
+
+            <input type="text" name="username" placeholder="Enter Username">
+
+            <input type="email" name="email" placeholder="Enter Email">
+
+            <input type="password" name="password" placeholder="Enter Password">
+
+            <button type="submit">Register</button>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>

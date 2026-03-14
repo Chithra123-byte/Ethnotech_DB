@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card" style="max-width: 800px; padding: 3rem;">
+    <h2 style="font-size: 2.5rem; color: var(--primary);"><i class="fas fa-chart-line"></i> Dashboard</h2>
+    <p style="text-align: center; color: var(--text-muted); font-size: 1.1rem; margin-bottom: 2rem;">Manage your store's products and inventory.</p>
+
+    <div class="dashboard-actions">
+        <a href="/add_product" class="dashboard-card">
+            <i class="fas fa-plus-circle"></i>
+            <h3>Add Product</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">Add new items to your store.</p>
+        </a>
+        
+        <a href="/view_product" class="dashboard-card">
+            <i class="fas fa-box-open"></i>
+            <h3>View Products</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">See all available items.</p>
+        </a>
+
+        <a href="/edit_products" class="dashboard-card">
+            <i class="fas fa-edit"></i>
+            <h3>Edit Products</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.5rem;">Update descriptions & prices.</p>
+        </a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+    <h2 style="font-size: 2rem; color: var(--primary);"><i class="fas fa-edit"></i> Edit Products</h2>
+    <a href="/dashboard" class="btn-secondary" style="padding: 0.5rem 1rem;"><i class="fas fa-arrow-left"></i> Back to Dashboard</a>
+</div>
+
+{% if not products %}
+<div class="card" style="text-align: center; max-width: 600px;">
+    <i class="fas fa-box-open" style="font-size: 4rem; color: var(--text-muted); margin-bottom: 1rem;"></i>
+    <h3>No products available yet.</h3>
+    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Start by adding some items to your catalog.</p>
+    <a href="/add_product" class="btn-login" style="text-decoration: none;">Add Your First Product</a>
+</div>
+{% else %}
+<div class="product-grid">
+    {% for p in products %}
+    <div class="product-card" style="border-top: 4px solid var(--accent);">
+        <div class="product-details">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                <div>
+                    <h3 style="margin-bottom: 0;">{{ p.name }}</h3>
+                    <span style="font-size: 0.8rem; color: var(--text-muted);">ID: {{ p.pid }}</span>
+                </div>
+                {% if p.image %}
+                    <img src="{{ p.image }}" alt="{{ p.name }}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 8px;">
+                {% else %}
+                    <div style="width: 50px; height: 50px; background: #E5E7EB; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-image" style="color: #9CA3AF;"></i>
+                    </div>
+                {% endif %}
+            </div>
+            
+            <p class="product-price" style="margin-bottom: 0;">${{ p.price }}</p>
+            <p class="product-desc" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 1.5rem;">{{ p.desc }}</p>
+
+            <div class="product-actions">
+                <a href="/edit_product/{{ p.pid }}" class="btn-secondary" style="background-color: var(--primary); color: white; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                    <i class="fas fa-pencil-alt"></i> Edit Details
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,35 @@
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="/register">Register</a>
+        <a href="/login">Login</a>
+    </div>
+
+    <div class="container">
+
+        <h2>Login</h2>
+
+        <form method="POST">
+
+            <input type="text" name="username" placeholder="Enter Username">
+
+            <input type="password" name="password" placeholder="Enter Password">
+
+            <button type="submit">Login</button>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>

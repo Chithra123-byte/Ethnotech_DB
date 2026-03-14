@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card" style="max-width: 500px;">
+    <h2><i class="fas fa-pencil-alt" style="color: var(--primary); margin-right: 10px;"></i> Edit Product</h2>
+    
+    <div style="background: rgba(79, 70, 229, 0.1); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem;">
+        {% if product.image %}
+            <img src="{{ product.image }}" alt="{{ product.name }}" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;">
+        {% else %}
+            <div style="width: 60px; height: 60px; background: #E5E7EB; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                <i class="fas fa-image" style="color: #9CA3AF; font-size: 1.5rem;"></i>
+            </div>
+        {% endif %}
+        <div>
+            <h3 style="margin: 0; font-size: 1.1rem; color: var(--primary);">Editing Form</h3>
+            <span style="font-size: 0.9rem; color: var(--text-muted);">Product ID: {{ product.pid }}</span>
+        </div>
+    </div>
+
+    <form method="POST" enctype="multipart/form-data">
+        <div style="display: flex; flex-direction: column; gap: 5px;">
+            <label style="font-size: 0.9rem; font-weight: 600;">Product Name</label>
+            <input type="text" name="name" value="{{product.name}}" placeholder="Name" required>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 5px;">
+            <label style="font-size: 0.9rem; font-weight: 600;">Price ($)</label>
+            <input type="text" name="price" value="{{product.price}}" placeholder="0.00" required>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 5px;">
+            <label style="font-size: 0.9rem; font-weight: 600;">Description</label>
+            <textarea name="desc" rows="3" placeholder="Describe the product..." required>{{product.desc}}</textarea>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 5px;">
+            <label style="font-size: 0.9rem; font-weight: 600;">Update Image (Leave blank to keep current)</label>
+            <input type="file" name="image" accept="image/*" style="border: none; padding: 0.8rem 0;">
+        </div>
+
+        <button type="submit" style="margin-top: 1rem;">Update Product</button>
+        <a href="/edit_products" class="btn-secondary" style="margin-top: 0.5rem;">Cancel Update</a>
+    </form>
+</div>
+{% endblock %}

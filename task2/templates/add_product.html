@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card" style="max-width: 500px;">
+    <h2><i class="fas fa-plus-circle" style="color: var(--primary); margin-right: 10px;"></i> Add Product</h2>
+
+    <form method="POST" enctype="multipart/form-data">
+        <div style="display: flex; flex-direction: column; gap: 5px;">
+            <label style="font-size: 0.9rem; font-weight: 600;">Product ID</label>
+            <input type="text" name="pid" placeholder="e.g. 101" required>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 5px;">
+            <label style="font-size: 0.9rem; font-weight: 600;">Product Name</label>
+            <input type="text" name="name" placeholder="Name" required>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 5px;">
+            <label style="font-size: 0.9rem; font-weight: 600;">Price ($)</label>
+            <input type="text" name="price" placeholder="0.00" required>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 5px;">
+            <label style="font-size: 0.9rem; font-weight: 600;">Description</label>
+            <textarea name="desc" rows="3" placeholder="Describe the product..." required></textarea>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 5px;">
+            <label style="font-size: 0.9rem; font-weight: 600;">Product Image</label>
+            <input type="file" name="image" accept="image/*" style="border: none; padding: 0.8rem 0;">
+        </div>
+
+        <button type="submit" style="margin-top: 1rem;">Add Product</button>
+    </form>
+</div>
+{% endblock %}

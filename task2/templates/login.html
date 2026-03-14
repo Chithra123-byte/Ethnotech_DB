@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+    <h2><i class="fas fa-sign-in-alt" style="color: var(--primary); margin-right: 10px;"></i> Login</h2>
+    
+    {% if error %}
+        <div class="error-msg">{{ error }}</div>
+    {% endif %}
+
+    <form method="POST">
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+    </form>
+    
+    <div style="text-align: center; margin-top: 1rem; font-size: 0.9rem;">
+        Don't have an account? <a href="/user_register" style="color: var(--primary);">Register here</a>
+    </div>
+</div>
+{% endblock %}

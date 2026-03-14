@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+    <h2 style="font-size: 2rem; color: var(--primary);"><i class="fas fa-tags"></i> Product Catalog</h2>
+    <a href="/dashboard" class="btn-secondary" style="padding: 0.5rem 1rem;"><i class="fas fa-arrow-left"></i> Back to Dashboard</a>
+</div>
+
+{% if not products %}
+<div class="card" style="text-align: center; max-width: 600px;">
+    <i class="fas fa-box-open" style="font-size: 4rem; color: var(--text-muted); margin-bottom: 1rem;"></i>
+    <h3>No products available yet.</h3>
+    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Start by adding some items to your catalog.</p>
+    <a href="/add_product" class="btn-login" style="text-decoration: none;">Add Your First Product</a>
+</div>
+{% else %}
+<div class="product-grid">
+    {% for p in products %}
+    <div class="product-card">
+        {% if p.image %}
+            <img src="{{ p.image }}" alt="{{ p.name }}" class="product-image">
+        {% else %}
+            <div class="product-image" style="display: flex; align-items: center; justify-content: center;">
+                <i class="fas fa-camera" style="font-size: 3rem; color: #9CA3AF;"></i>
+            </div>
+        {% endif %}
+        
+        <div class="product-details">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <h3>{{ p.name }}</h3>
+                <span style="font-size: 0.8rem; background: #EEF2FF; color: var(--primary); padding: 0.2rem 0.5rem; border-radius: 4px; font-weight: bold;">ID: {{ p.pid }}</span>
+            </div>
+            
+            <p class="product-price">${{ p.price }}</p>
+            <p class="product-desc">{{ p.desc }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endblock %}
