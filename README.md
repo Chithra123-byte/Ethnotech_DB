@@ -52,3 +52,9 @@ This repository covers the following MongoDB fundamentals:
 * Storing arrays inside documents
 * Querying array elements
 * Updating array values using MongoDB operators
+* Learning functions like $push(),$pop(),$unwind(),$limit
+
+### 8️⃣ Did Two Task
+
+* First-Creating simple Navigation page with login and register
+*Second-Creating website like a shopping site
